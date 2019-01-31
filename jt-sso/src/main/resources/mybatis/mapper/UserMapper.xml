@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 
+  1.表示映射文件，名称不能重复
+  2.表示与接口的映射关系 -->
+<mapper namespace="com.jt.sso.mapper.UserMapper">
+
+	
+</mapper>
