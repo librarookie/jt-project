@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 
+  1.表示映射文件，名称不能重复
+  2.表示与接口的映射关系 -->
+<mapper namespace="com.jt.manage.mapper.ItemMapper">
+	<!-- 
+		关于#号和$的区别
+		#号：
+			1.使用#号传参有预编译的效果，有效防止sql注入攻击
+			2.为参数添加一对 "" 号
+			约定： -->
+	<select id="findItemByPage"  resultType="Item">
+		select * from tb_item order by updated desc 
+		limit #{start},#{rows}
+	</select>
+		
+	<!--实现item数据状态更新操作
+		map集合   collection="map中的key"
+		array数组  collection="array"
+		List集合    collection="list"
+	  -->
+	<update id="updateStatus">
+		update tb_item set status = #{status},updated = now() 
+		where id in (
+		<foreach collection="ids" item="id" separator=",">
+			#{id}
+		</foreach>
+		)
+	</update>
+	
+</mapper>

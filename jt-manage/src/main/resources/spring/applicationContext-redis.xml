@@ -1,0 +1,66 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+
+	
+
+	<!-- 加载配置文件
+	<util:properties id="pro" location="classpath:/properties/redis01.properties" />
+	 --> 
+	<!-- 配置哨兵 -->
+	<!-- <bean id="shardedJedis" class="redis.clients.jedis.ShardedJedis">
+		<constructor-arg name="shards">
+			<list>
+				<ref bean="info-6379"/>
+				<ref bean="info-6380"/>
+				<ref bean="info-6381"/>
+			</list>
+		</constructor-arg>
+	</bean> -->
+	
+	<!-- Spring实现分片的配置
+	<bean id="config" class="org.springframework.data.redis.connection.PoolConfig">
+		<property name="MaxTotal" value="1000"/>
+	</bean>
+	<bean id="info-6379" class="redis.clients.jedis.JedisShardInfo">
+		<constructor-arg name="host" value="#{pro.redis.host}" />
+		<constructor-arg name="port" value="#{pro.redis.port1}" />
+	</bean>
+	<bean id="info-6380" class="redis.clients.jedis.JedisShardInfo">
+		<constructor-arg name="host" value="#{pro.redis.host}" />
+		<constructor-arg name="port" value="#{pro.redis.port2}" />
+	</bean>
+	<bean id="info-6381" class="redis.clients.jedis.JedisShardInfo">
+		<constructor-arg name="host" value="#{pro.redis.host}" />
+		<constructor-arg name="port" value="#{pro.redis.port3}" />
+	</bean>	
+	<bean id="jedisPool" class="redis.clients.jedis.ShardedJedisPool">
+		<constructor-arg name="poolConfig" ref="config"/>
+		<constructor-arg name="shards">
+			<list>
+				<ref bean="info-6379" />
+				<ref bean="info-6380" />
+				<ref bean="info-6381" />
+			</list>
+		</constructor-arg>
+	</bean>  -->
+	
+	<!-- 哨兵的配置项
+	<bean id="sentinelPool" class="redis.clients.jedis.JedisSentinelPool">
+		<constructor-arg name="masterName" value="${redis.masterName}"/>
+		<constructor-arg name="sentinels">
+			<set>
+				<value>${redis.sentinels}</value>
+			</set>
+		</constructor-arg>
+	</bean>
+	 -->
+</beans>

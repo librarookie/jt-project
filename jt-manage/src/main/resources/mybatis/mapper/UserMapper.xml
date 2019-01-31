@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 
+  1.表示映射文件，名称不能重复
+  2.表示与接口的映射关系 -->
+<mapper namespace="com.jt.manage.mapper.UserMapper">
+	<!-- 包名通过配置文件的形式定义
+		编辑sql时，切记不要加 ";" 号 -->
+	<select id="findAll"  resultType="com.jt.manage.pojo.User">
+		select * from user
+	</select>
+	
+</mapper>
