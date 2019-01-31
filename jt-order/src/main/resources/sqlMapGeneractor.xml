@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 动态加载配置文件 -->
+	<properties resource="generatorConfig.properties"/>
+	<!-- 配置数据库驱动 -->
+	<classPathEntry location="F:/repository/mysql/mysql-connector-java-5.1.10-bin.jar" />
+	
+	<context id="tarena">
+		
+		<commentGenerator>
+			<property name="suppressAllComments" value="${suppressAllComments}"/>
+		</commentGenerator>
+		<jdbcConnection driverClass="${driverClass}" connectionURL="${url}" userId="${username}" password="${password}" />
+	
+		<javaModelGenerator targetPackage="${modeltargetPackage}" targetProject="${targetProject_pojo}" />
+		
+		<sqlMapGenerator targetPackage="${sqltargetPackage}" targetProject="${targetProject}" />	
+		<javaClientGenerator targetPackage="${clienttargetPackage}" targetProject="${targetProject}" type="XMLMAPPER" /> 
+
+		
+		<table  tableName="tb_order" domainObjectName="Order" enableCountByExample="false" enableUpdateByExample="false" 
+		enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+		
+		<table  tableName="tb_order_item" domainObjectName="OrderItem" enableCountByExample="false" enableUpdateByExample="false" 
+		enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+		
+		<table  tableName="tb_order_shipping" domainObjectName="OrderShipping" enableCountByExample="false" enableUpdateByExample="false" 
+		enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+		
+	</context>
+</generatorConfiguration>
